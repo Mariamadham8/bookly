@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
   static TextStyle  Font18W600 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
+    fontFamily: 'GT Sectra Fine',
   );
 
   static TextStyle  Font20W500 = TextStyle(
@@ -19,6 +20,7 @@ import 'package:flutter/material.dart';
   static TextStyle  Font1W600 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
+    fontFamily: 'GT Sectra Fine',
   );
 
   static TextStyle  Font16W400 = TextStyle(
