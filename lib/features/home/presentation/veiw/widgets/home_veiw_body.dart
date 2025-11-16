@@ -3,6 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../../../../core/utils/styles.dart';
+import 'best_seller_item.dart';
+import 'best_seller_listveiw.dart';
+import 'book_list_veiw.dart';
 import 'custum_app_bar.dart';
 import 'custume_listveiw_item.dart';
 
@@ -15,29 +19,23 @@ class HomeVeiwBody extends StatelessWidget {
     return Column(
       children:[
         CustumAppBar(),
-         BooksListVeiw(),
+
+        BooksListVeiw(),
+
+        SizedBox(height: 25.h,),
+
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text("  Best Sellers", style: Styles.Font18W600
+
+          ),
+        ),
+       // BestSellerItem(title: "Harry Potter\n and the Globet of Fire",subTitle: "J.K Rowling",)
+        BestSellerListVeiw(),
       ],
     );
   }
 }
 
-class BooksListVeiw extends StatelessWidget {
-  const BooksListVeiw({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height *0.3,
-      child: ListView.builder(
-        padding: EdgeInsets.all(4),
-
-        itemCount: 10,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return  CustumListVeiwItem();
-        },
-      ),
-    );
-  }
-}
 
