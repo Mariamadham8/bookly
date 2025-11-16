@@ -10,8 +10,8 @@ class CustumListVeiwItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height *0.3,
+    return Padding(
+      padding: const EdgeInsets.all(4),
       child: AspectRatio(
         aspectRatio: 2.6/4,
         child: Container(

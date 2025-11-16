@@ -15,8 +15,29 @@ class HomeVeiwBody extends StatelessWidget {
     return Column(
       children:[
         CustumAppBar(),
-        CustumListVeiwItem(),
+         BooksListVeiw(),
       ],
     );
   }
 }
+
+class BooksListVeiw extends StatelessWidget {
+  const BooksListVeiw({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height *0.3,
+      child: ListView.builder(
+        padding: EdgeInsets.all(4),
+
+        itemCount: 10,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return  CustumListVeiwItem();
+        },
+      ),
+    );
+  }
+}
+
