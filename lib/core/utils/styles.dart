@@ -28,6 +28,11 @@ import 'package:flutter/material.dart';
     fontWeight: FontWeight.w400,
   );
 
+  static TextStyle  Font14W600 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle  Font16W200 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w200,
