@@ -9,15 +9,14 @@ class BestSellerListVeiw extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height *0.4,
-      child: ListView.builder(
-        padding: EdgeInsets.only(left: 8),
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return BestSellerItem(title: "Harry Potter\n and the Globet of Fire",subTitle: "J.K Rowling",);
-        },
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.only(left: 8),
+      itemCount: 7,
+      itemBuilder: (context, index) {
+        return BestSellerItem(title: "Harry Potter\n and the Globet of Fire",subTitle: "J.K Rowling",);
+      },
     );
   }
 }

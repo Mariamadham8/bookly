@@ -14,12 +14,13 @@ class BooksListVeiw extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height *0.3,
       child: ListView.builder(
+
         padding: EdgeInsets.all(4),
 
         itemCount: 10,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return  CustumListVeiwItem(Hieght: 100,img: assets.TestImage,);
+          return  CustumListVeiwItem(Hieght: 100,img: assets.bookTest,);
         },
       ),
     );

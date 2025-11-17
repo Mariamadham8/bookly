@@ -16,26 +16,37 @@ class HomeVeiwBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children:[
-        CustumAppBar(),
+    return CustomScrollView(
 
-        BooksListVeiw(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                CustumAppBar(),
 
-        SizedBox(height: 25.h,),
+                BooksListVeiw(),
 
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text("  Best Sellers", style: Styles.Font18W600
+                SizedBox(height: 25.h,),
 
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text("  Best Sellers", style: Styles.Font18W600
+
+                  ),
+                ),
+                // BestSellerItem(title: "Harry Potter\n and the Globet of Fire",subTitle: "J.K Rowling",)
+              ],
+            ),
           ),
-        ),
-       // BestSellerItem(title: "Harry Potter\n and the Globet of Fire",subTitle: "J.K Rowling",)
-        BestSellerListVeiw(),
-      ],
+
+          SliverToBoxAdapter(
+            child: BestSellerListVeiw(),
+          )
+        ]
     );
   }
 }
+
 
 
 
