@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/constants/durations.dart';
 import '../../../../../core/utils/assets.dart';
@@ -30,7 +31,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
 
   void NavigateToHomeScreen(){
     Future.delayed( const Duration(seconds: 3),() {
-      Get.to(()=> const HomeVeiw(),transition: Transition.fade,duration: KtransitionDuration);
+      GoRouter.of(context).push('/home');
     },);
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/constants/durations.dart';
 import '../book_details_veiw.dart';
@@ -22,7 +23,7 @@ class BestSellerListVeiw extends StatelessWidget {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: (){
-            Get.to(()=> const BookDetailsVeiw(),transition: Transition.fade,duration: KtransitionDuration);
+            GoRouter.of(context).push('/BookDetailsVeiw');
           },
             child: BestSellerItem(title: "Harry Potter\n and the Globet of Fire",subTitle: "J.K Rowling",));
       },
