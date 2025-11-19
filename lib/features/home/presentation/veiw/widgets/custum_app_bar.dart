@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
 
@@ -16,7 +17,9 @@ class CustumAppBar extends StatelessWidget {
           SvgPicture.asset(assets.logo,height:23,),
           const Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push('/SearchVeiw');
+            },
             icon: Icon(Icons.search),
           ),
 
