@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 
 class BookDetailsAppBar extends StatelessWidget {
@@ -6,15 +7,21 @@ class BookDetailsAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
         children:[
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(Icons.arrow_back_ios),
+            padding:  EdgeInsets.all(10),
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                GoRouter.of(context).push('/home');
+                  },
+                ),
           ),
           Spacer(),
           Icon(Icons.more_horiz),
         ]
+
     );
   }
 }

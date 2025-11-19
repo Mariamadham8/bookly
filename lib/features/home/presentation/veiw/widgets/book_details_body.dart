@@ -13,26 +13,33 @@ class BookVeiwBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        BookDetailsAppBar(),
-        SizedBox(
-            height: MediaQuery.of(context).size.height *0.3,
-            child: CustumListVeiwItem(Hieght: 50.h,img: assets.bookTest,)
-        ),
-        SizedBox(height: 20.h,),
-        Preveiw(title: "   Harry Potter and the Globet of Fire",subTitle: "   J.K Rowling",),
-        SizedBox(height: 40.h,),
-        Align(
-            alignment: Alignment.centerLeft,
-            child: Text(" You Can also like",style: Styles.Font14W600,)
-        ),
-        SizedBox(height: 10.h,),
-        SizedBox(
-            height: MediaQuery.of(context).size.height *0.2,
-            child: BooksListVeiw(Hieght: 10.h,)),
 
+    return  CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BookDetailsAppBar(),
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *0.3,
+                  child: CustumListVeiwItem(Hieght: 50.h,img: assets.bookTest,)
+              ),
+              SizedBox(height: 20.h,),
+              Preveiw(title: "   Harry Potter and the Globet of Fire",subTitle: "   J.K Rowling",),
+              Expanded(child: SizedBox(height: 40.h,)),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text("    You Can also like",style: Styles.Font14W600,)
+              ),
+              SizedBox(height: 10.h,),
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *0.2,
+                  child: BooksListVeiw(Hieght: 10.h,)),
+            ],
+          ),
+
+        )
       ],
     );
   }
