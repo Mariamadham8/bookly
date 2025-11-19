@@ -2,6 +2,7 @@
 
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../../../core/networking/api_constants.dart';
@@ -26,15 +27,17 @@ class HomeRepImplemintation implements HomeRepo {
       return Right(books);
     }
     catch(e){
-      return Left(ServerFailure());
+      if(e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+        return Left(ServerFailure(message: e.toString()));
+      }
     }
 
-  }
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
-
-
+    return Future.value(const Right([]));
   }
 
-  }
+}
