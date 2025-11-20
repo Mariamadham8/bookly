@@ -6,9 +6,9 @@ import '../../../../../core/utils/assets.dart';
 
 
 class CustumListVeiwItem extends StatelessWidget {
-  final String img;
+   final String? img;
   final double Hieght;
-  const CustumListVeiwItem({super.key,required this.img, required this.Hieght});
+  const CustumListVeiwItem({super.key,this.img, required this.Hieght});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class CustumListVeiwItem extends StatelessWidget {
           width: 80.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(image: Image.asset(img).image,fit: BoxFit.fill)
+              image: DecorationImage(image: Image.asset(img!).image,fit: BoxFit.fill)
           ),
         ),
       ),
