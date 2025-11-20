@@ -30,14 +30,27 @@ class HomeRepImplemintation implements HomeRepo {
       if(e is DioException) {
         return Left(ServerFailure.fromDioError(e));
       }
-        return Left(ServerFailure(message: e.toString()));
+        return Left(ServerFailure(e.toString()));
       }
     }
 
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
-    return Future.value(const Right([]));
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    final res =await apiServices.get(endPoint: FeaturedBooksEndPoint);
+    try{
+      List<BookModel> books =[];
+      for (var book in res){
+        books.add(BookModel.fromJson(book));
+      }
+      return Right(books);
+    }
+    catch(e){
+      if(e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return Left(ServerFailure( e.toString()));
+    }
   }
 
 }

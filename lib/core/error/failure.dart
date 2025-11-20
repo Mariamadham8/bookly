@@ -1,109 +1,120 @@
 import 'package:dio/dio.dart';
 
 abstract class Failure {
-
+  final String errmessage;
+  Failure(this.errmessage);
 
 }
 
 class ServerFailure extends Failure {
-  final String? message;
 
-  ServerFailure({this.message});
+  ServerFailure(String message,) : super(message ?? "Server Failure");
 
   factory ServerFailure.fromDioError(DioException dioError) {
     switch (dioError.type) {
       case DioExceptionType.cancel:
-        return ServerFailure(message: "Request to API server was cancelled");
+        return ServerFailure("Request to API server was cancelled");
 
       case DioExceptionType.connectionTimeout:
-        return ServerFailure(message: "Connection timeout with API server");
+        return ServerFailure( "Connection timeout with API server");
 
       case DioExceptionType.receiveTimeout:
-        return ServerFailure(message: "Receive timeout in connection with API server");
+        return ServerFailure( "Receive timeout in connection with API server");
 
       case DioExceptionType.sendTimeout:
-        return ServerFailure(message: "Send timeout in connection with API server");
+        return ServerFailure( "Send timeout in connection with API server");
 
       case DioExceptionType.badCertificate:
-        return ServerFailure(message: "Bad certificate from server");
+        return ServerFailure( "Bad certificate from server");
 
       case DioExceptionType.badResponse:
         return ServerFailure.fromStatusCode(dioError.response?.statusCode ??0);
 
       case DioExceptionType.connectionError:
         return ServerFailure(
-          message: "Connection failed. Check your internet connection",
+         "Connection failed. Check your internet connection",
         );
 
       case DioExceptionType.unknown:
       default:
-        return ServerFailure(message: "Something went wrong");
+        return ServerFailure("Something went wrong");
     }
   }
 
   factory ServerFailure.fromStatusCode(int statusCode) {
     switch (statusCode) {
       case 400:
-        return ServerFailure(message: "Bad request");
+        return ServerFailure( "Bad request");
 
       case 401:
-        return ServerFailure(message: "Unauthorized request");
+        return ServerFailure( "Unauthorized request");
 
       case 403:
-        return ServerFailure(message: "Forbidden request");
+        return ServerFailure( "Forbidden request");
 
       case 404:
-        return ServerFailure(message: "Request not found");
+        return ServerFailure( "Request not found");
 
       case 500:
-        return ServerFailure(message: "Internal server error");
+        return ServerFailure( "Internal server error");
 
       case 502:
-        return ServerFailure(message: "Bad gateway");
+        return ServerFailure("Bad gateway");
 
       case 503:
-        return ServerFailure(message: "Service unavailable");
+        return ServerFailure( "Service unavailable");
 
       case 504:
-        return ServerFailure(message: "Gateway timeout");
+        return ServerFailure("Gateway timeout");
 
       default:
         return ServerFailure(
-            message: "Received invalid status code: $statusCode");
+             "Received invalid status code: $statusCode");
     }
   }
 }
 
 class CacheFailure extends Failure {
+  CacheFailure(String errmessage) : super(errmessage);
 
 }
 class OfflineFailure extends Failure {
+  OfflineFailure(String errmessage) : super(errmessage);
 
 }
 class UnknownFailure extends Failure {
+  UnknownFailure(String errmessage) : super(errmessage);
 
 }
 class ApiFailure extends Failure {
+  ApiFailure(String errmessage) : super(errmessage);
 
 }
 class ValidationFailure extends Failure {
+  ValidationFailure(String errmessage) : super(errmessage);
 
 }
 class AuthenticationFailure extends Failure {
+  AuthenticationFailure(String errmessage) : super(errmessage);
 
 }
 class PermissionFailure extends Failure {
+  PermissionFailure(String errmessage) : super(errmessage);
 
 }
 class NotFoundFailure extends Failure {
+  NotFoundFailure(String errmessage) : super(errmessage);
 
 }
 class TimeoutFailure extends Failure {
+  TimeoutFailure(String errmessage) : super(errmessage);
 
 }
 class ConflictFailure extends Failure {
+  ConflictFailure(String errmessage) : super(errmessage);
 
 }
 class RateLimitFailure extends Failure {
+  RateLimitFailure(String errmessage) : super(errmessage);
 
 }
