@@ -4,9 +4,11 @@ import '../../../../../core/utils/styles.dart';
 
 
 class Preveiw extends StatelessWidget {
-  final String title ;
-  final String subTitle;
-  const Preveiw({super.key, required this.title, required this.subTitle});
+  final String? title ;
+  final String? subTitle;
+  final String? rating ;
+  final String? count;
+  const Preveiw({super.key, this.title,  this.subTitle,this.count, this.rating});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +17,8 @@ class Preveiw extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(title,style: Styles.Font18W600,),
-          Text(subTitle,style: Styles.Font16W200,),
+          Text(title?? "",style: Styles.Font18W600,),
+          Text(subTitle??"no Authur",style: Styles.Font16W200,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -25,11 +27,11 @@ class Preveiw extends StatelessWidget {
                 text: TextSpan(
                     children: [
                       TextSpan(
-                          text: "4.8",
+                          text: rating??"4.8",
                           style: Styles.Font16W400
                       ),
                       TextSpan(
-                          text: " (2390)",
+                          text: count??" (2390)",
                           style: Styles.Font16W400.copyWith(color: Colors.grey)
                       ),
                     ]

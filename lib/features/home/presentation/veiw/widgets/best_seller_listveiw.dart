@@ -10,6 +10,7 @@ import '../../../../../core/widgets/custum_error_widget.dart';
 import '../../view_model/newest_books/newest_books_cubit.dart';
 import '../book_details_veiw.dart';
 import 'best_seller_item.dart';
+import 'book_details_body.dart';
 
 
 
@@ -30,9 +31,15 @@ class BestSellerListVeiw extends StatelessWidget {
               itemBuilder: (context, index) {
               return InkWell(
               onTap: (){
-                  GoRouter.of(context).push('/BookDetailsVeiw');
+
+                  GoRouter.of(context).push('/BookDetailsVeiw',extra: state.books[index],);
                   },
-                child: BestSellerItem(IMG:state.books[index].volumeInfo?.imageLinks?.thumbnail,title: "Harry Potter\n and the Globet of Fire",subTitle: "J.K Rowling",));
+                child: BestSellerItem(IMG:state.books[index].volumeInfo?.imageLinks?.thumbnail,title: state.books[index].volumeInfo?.title,
+                  subTitle: state.books[index].volumeInfo?.publisher,
+                  count:state.books[index].volumeInfo?.pageCount.toString() ,
+                  Rating: state.books[index].volumeInfo?.maturityRating?.toString(),
+                 )
+              );
               },
             );
         }

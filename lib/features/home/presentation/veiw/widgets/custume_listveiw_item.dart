@@ -20,14 +20,14 @@ class CustumListVeiwItem extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 2.6/4,
           child: CachedNetworkImage(
-            imageUrl: img ?? assets.bookTest,
+            imageUrl: img ?? "https://www.forewordreviews.com/books/covers/the-theater-of-night.jpg",
             fit: BoxFit.fill,
             errorWidget: (context, url, error) => Container(
               height: Hieght.h,
               width: 80.w,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  image: DecorationImage(image: AssetImage(assets.bookTest),fit: BoxFit.fill)
+                  image: DecorationImage(image: NetworkImage("https://www.forewordreviews.com/books/covers/the-theater-of-night.jpg"),fit: BoxFit.fill)
               ),
             ),
           )

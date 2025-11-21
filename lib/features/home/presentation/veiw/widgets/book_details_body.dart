@@ -4,12 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/book_model.dart';
 import 'book_details_appbar.dart';
 import 'book_list_veiw.dart';
 import 'custume_listveiw_item.dart';
 
 class BookVeiwBody extends StatelessWidget {
-  const BookVeiwBody({super.key});
+
+ final  BookModel? bookModel;
+  const BookVeiwBody({super.key,this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +26,10 @@ class BookVeiwBody extends StatelessWidget {
               BookDetailsAppBar(),
               SizedBox(
                   height: MediaQuery.of(context).size.height *0.3,
-                  child: CustumListVeiwItem(Hieght: 50.h,img:'https://i.pinimg.com/736x/62/86/68/628668251c6381f8a2f6fd6d7a1638db.jpg',)
+                  child: CustumListVeiwItem(Hieght: 50.h,img: bookModel?.volumeInfo?.imageLinks?.thumbnail,)
               ),
               SizedBox(height: 20.h,),
-              Preveiw(title: "   Harry Potter and the Globet of Fire",subTitle: "   J.K Rowling",),
+              Preveiw(title:bookModel?.volumeInfo?.title,subTitle: bookModel?.volumeInfo?.publisher,count: bookModel?.volumeInfo?.pageCount.toString(),rating: bookModel?.volumeInfo?.maturityRating ,),
               Expanded(child: SizedBox(height: 40.h,)),
               Align(
                   alignment: Alignment.centerLeft,
