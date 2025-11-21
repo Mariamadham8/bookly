@@ -9,7 +9,8 @@ import 'custume_listveiw_item.dart';
 class BestSellerItem extends StatelessWidget {
   final String title ;
   final String subTitle;
-  const BestSellerItem({super.key, required this.title, required this.subTitle});
+  final String? IMG;
+  const BestSellerItem({super.key, required this.title, required this.subTitle, this.IMG});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class BestSellerItem extends StatelessWidget {
       child: Row(
         spacing: 30.w,
         children: [
-          CustumListVeiwItem(img: assets.bookTest,Hieght:45,),
+          CustumListVeiwItem(img:IMG,Hieght:45,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
 

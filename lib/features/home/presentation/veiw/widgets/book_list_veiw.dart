@@ -10,8 +10,9 @@ import 'custume_listveiw_item.dart';
 
 
 class BooksListVeiw extends StatelessWidget {
+  final  String? img;
   final double Hieght;
-  const BooksListVeiw({super.key,required this.Hieght});
+  const BooksListVeiw({super.key,required this.Hieght, this.img});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,6 @@ class BooksListVeiw extends StatelessWidget {
                 return SizedBox(
                   height: MediaQuery.of(context).size.height *0.3,
                   child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
                     padding: EdgeInsets.all(4),
                     itemCount: state.books.length,
                     scrollDirection: Axis.horizontal,

@@ -54,7 +54,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SvgPicture.asset(assets.logo1,width: 40,height: 50,),
+        SvgPicture.asset(assets.logo,width: 40,height: 50,),
         //this for optimizing the performance to rebuild this text widget not all the col
         SlidingText(sliding_animation:sliding_animation ,)
       ],

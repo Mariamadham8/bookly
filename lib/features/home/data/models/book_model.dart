@@ -4,7 +4,7 @@ class BookModel {
       this.id, 
       this.etag, 
       this.selfLink, 
-      this.volumeInfo, 
+     required this.volumeInfo,
       this.saleInfo, 
       this.accessInfo, 
       this.searchInfo,});

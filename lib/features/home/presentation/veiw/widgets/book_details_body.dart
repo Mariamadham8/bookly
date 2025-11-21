@@ -23,7 +23,7 @@ class BookVeiwBody extends StatelessWidget {
               BookDetailsAppBar(),
               SizedBox(
                   height: MediaQuery.of(context).size.height *0.3,
-                  child: CustumListVeiwItem(Hieght: 50.h,img: assets.bookTest,)
+                  child: CustumListVeiwItem(Hieght: 50.h,img:'https://i.pinimg.com/736x/62/86/68/628668251c6381f8a2f6fd6d7a1638db.jpg',)
               ),
               SizedBox(height: 20.h,),
               Preveiw(title: "   Harry Potter and the Globet of Fire",subTitle: "   J.K Rowling",),
