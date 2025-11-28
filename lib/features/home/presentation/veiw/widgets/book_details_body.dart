@@ -33,6 +33,7 @@ class BookVeiwBody extends StatelessWidget {
                 subTitle: bookModel?.volumeInfo?.publisher,
                 count: bookModel?.volumeInfo?.pageCount.toString(),
                 rating: bookModel?.volumeInfo?.maturityRating,
+                previewLink: bookModel?.volumeInfo?.previewLink!,
               ),
               Expanded(child: SizedBox(height: 40.h)),
               Align(

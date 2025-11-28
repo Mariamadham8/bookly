@@ -1,94 +1,104 @@
+import 'package:bookly/core/utils/helper_functions/url_launcher.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../../../core/utils/styles.dart';
 
-
-
 class Preveiw extends StatelessWidget {
-  final String? title ;
+  final String? title;
   final String? subTitle;
-  final String? rating ;
+  final String? rating;
   final String? count;
-  const Preveiw({super.key, this.title,  this.subTitle,this.count, this.rating});
+  final String? previewLink;
+  const Preveiw({
+    super.key,
+    this.title,
+    this.subTitle,
+    this.count,
+    this.rating,
+    this.previewLink,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return  Align(
+    return Align(
       alignment: Alignment.center,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(title?? "",style: Styles.Font18W600,),
-          Text(subTitle??"no Authur",style: Styles.Font16W200,),
+          Text(title ?? "", style: Styles.Font18W600),
+          Text(subTitle ?? "no Authur", style: Styles.Font16W200),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.star, color: Colors.amber,),
+              Icon(Icons.star, color: Colors.amber),
               RichText(
                 text: TextSpan(
-                    children: [
-                      TextSpan(
-                          text: rating??"4.8",
-                          style: Styles.Font16W400
-                      ),
-                      TextSpan(
-                          text: count??" (2390)",
-                          style: Styles.Font16W400.copyWith(color: Colors.grey)
-                      ),
-                    ]
+                  children: [
+                    TextSpan(text: rating ?? "4.8", style: Styles.Font16W400),
+                    TextSpan(
+                      text: count ?? " (2390)",
+                      style: Styles.Font16W400.copyWith(color: Colors.grey),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
-          SizedBox(height: 30,),
-      Container(
-        height: 40,
+          SizedBox(height: 30),
+          Container(
+            height: 40,
 
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 4,
-                offset: Offset(0, 2),
-              )
-            ]
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-
-            Text(
-              "19.99\$",
-              style: Styles.Font14W600.copyWith(color: Colors.black),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 4,
+                  offset: Offset(0, 2),
+                ),
+              ],
             ),
+            child: InkWell(
+              onTap: () {
+                Url_Launcher(context, previewLink!);
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "19.99\$",
+                    style: Styles.Font14W600.copyWith(color: Colors.black),
+                  ),
 
+                  Container(
+                    height: 20,
+                    width: 1.5,
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    color: Colors.grey.withOpacity(0.4),
+                  ),
 
-            Container(
-              height: 20,
-              width: 1.5,
-              margin: EdgeInsets.symmetric(horizontal: 10),
-              color: Colors.grey.withOpacity(0.4),
-            ),
-
-            // Free Preview
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-              decoration: BoxDecoration(
-                color: Color(0xFFDC9056),
-                borderRadius: BorderRadius.circular(6),
+                  // Free Preview
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 6,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFDC9056),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Text(
+                      "Free Preview",
+                      style: Styles.Font14W600.copyWith(color: Colors.white),
+                    ),
+                  ),
+                ],
               ),
-              child: Text(
-                "Free Preview",
-                style: Styles.Font14W600.copyWith(color: Colors.white),
-              ),
             ),
-          ],
-        ),
-      )
-
-      ],
+          ),
+        ],
       ),
     );
   }
